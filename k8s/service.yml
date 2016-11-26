@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: circle-gke-test
+  labels:
+    app: circle-gke-test
+spec:
+  selector:
+    app: circle-gke-test
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    nodePort: 30011
+  type: NodePort
