@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: circle-gke-test
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: circle-gke-test
+    spec:
+      containers:
+      - name: circle-gke-test
+        image: gcr.io/charliek-apps/circle-gke-test:cca9c604dba51a76a0968bf8921b337a97906b8d
+        resources:
+          requests:
+            cpu: 100m
+            memory: 25Mi
+        ports:
+        - containerPort: 80
